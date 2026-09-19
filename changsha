@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#fff">
+<title>长沙3日2晚15人定制方案｜单文件版｜长沙3日2晚｜15人专属定制游</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+<style>
+:root{--blue:#147fe8;--blue2:#eaf5ff;--orange:#f27620;--text:#252525;--muted:#8a8f98;--line:#edf0f3;--bg:#f5f6f8;--green:#18a874}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+body{padding-bottom:78px}.app{width:100%;max-width:720px;margin:auto;background:#fff;min-height:100vh}
+.top{padding:12px 18px 14px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.topline{display:flex;align-items:center;gap:10px}.back{font-size:29px;line-height:1}.title{font-size:18px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dots{margin-left:auto;font-size:22px}
+.order{margin:12px 0 0 38px;font-size:12px;color:#90949b}
+.hero{margin:16px;background:linear-gradient(135deg,#f3f8ff,#f8f9fb);border-radius:15px;padding:20px 18px}
+.route{display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:17px}.arrow{color:#a7b7c8;font-size:22px}.meta{margin-top:10px;font-size:13px;color:#6d727a;line-height:1.8}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#eee;margin:0 16px 14px;border-radius:12px;overflow:hidden}.quick>div{background:#fff;padding:14px 7px;text-align:center}.qnum{font-size:18px;font-weight:800}.qtxt{font-size:11px;color:#888;margin-top:4px}
+.tabs{display:flex;border-bottom:1px solid var(--line);position:sticky;top:74px;z-index:15;background:#fff}.tab{flex:1;text-align:center;padding:16px 4px;font-size:15px}.tab.active{color:var(--blue);font-weight:700;border-bottom:3px solid var(--blue)}
+.panel{display:none}.panel.active{display:block}
+.section{padding:20px 16px}.section h2{font-size:19px;margin:0 0 14px}.section h3{font-size:16px;margin:20px 0 10px}
+.include{background:#f8f9fb;border-radius:12px;padding:17px}.incrow{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px dashed #ddd}.incrow:last-child{border-bottom:0}.incleft{display:flex;gap:10px;align-items:center}.icon{width:28px;height:28px;border-radius:8px;background:#eaf5ff;color:var(--blue);display:grid;place-items:center;font-size:14px}.incname{font-size:14px}.incval{font-size:13px;color:#666}
+.badges span{display:inline-block;padding:6px 10px;border-radius:18px;background:#eef7ff;color:#147fe8;font-size:12px;margin:3px}
+.hotel{border:1px solid #eee;border-radius:14px;overflow:hidden;background:#fff}.hotelpic{height:190px;position:relative;overflow:hidden;background:#eef3f7}.hotelpic img{width:100%;height:100%;display:block;object-fit:cover}.hotelpic:after{content:"酒店实景参考";position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.48);color:#fff;font-size:11px;padding:4px 8px;border-radius:8px}.spot-card{display:flex;gap:12px;padding:11px 0 0;align-items:flex-start}.spot-card img{width:118px;height:78px;object-fit:cover;border-radius:10px;flex:0 0 118px;background:#eef2f5}.spot-card .place{margin-top:0}.spot-card .desc{margin-top:5px}.img-credit{font-size:10px;color:#a0a5ab;margin-top:4px}.item.has-spot{padding-bottom:18px}.hotelbody{padding:15px}.hotelname{font-size:17px;font-weight:750}.stars{color:#f3ad00;margin-top:6px}.hotelmeta{color:#888;font-size:12px;line-height:1.8;margin-top:7px}.hotelprice{display:flex;justify-content:space-between;margin-top:12px}.hotelprice b{color:var(--orange);font-size:17px}.hotelprice span{font-size:12px;color:#999}
+.day{margin:14px 16px;background:#fff;border-radius:15px;box-shadow:0 2px 13px rgba(0,0,0,.06);overflow:hidden}.dayhead{padding:16px 17px;background:#f7f9fc;display:flex;align-items:center;justify-content:space-between}.daytag{font-size:20px;font-weight:850}.daydate{font-size:13px;color:var(--blue);font-weight:700}.daytheme{font-size:12px;color:#777;margin-top:4px}.timeline{padding:16px 17px 4px 35px;border-left:2px solid #e8edf2;margin-left:27px}.item{position:relative;padding:0 0 20px}.item:before{content:"";position:absolute;left:-41px;top:5px;width:10px;height:10px;background:#fff;border:3px solid var(--blue);border-radius:50%}.time{font-size:12px;color:var(--blue);font-weight:800}.place{font-size:16px;font-weight:750;margin-top:4px}.desc{font-size:13px;line-height:1.75;color:#6c727a;margin-top:4px}.tag{display:inline-block;background:#fff4e9;color:#c56822;font-size:11px;padding:3px 7px;border-radius:10px;margin-left:5px}
+.costbox{margin:16px;border-radius:15px;background:#fff;box-shadow:0 2px 14px rgba(0,0,0,.07);padding:19px}.costhead{color:#888;font-size:12px}.costbig{font-size:31px;font-weight:850;color:var(--orange);margin-top:4px}.costper{font-size:13px;color:#777;margin-top:2px}.costrow{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee;font-size:13px}.costrow:last-child{border:0}.costrow b{font-size:14px}.costtotal{font-size:16px;font-weight:800}
+.notice{background:#fff8e9;border-radius:11px;padding:13px 14px;color:#775b26;font-size:12px;line-height:1.8}.bluebox{background:#eef7ff;border-radius:11px;padding:13px 14px;color:#35607e;font-size:12px;line-height:1.8}
+.checklist{padding:0;margin:0;list-style:none}.checklist li{padding:10px 0;border-bottom:1px solid #eee;font-size:13px}.checklist li:before{content:"✓";color:var(--green);font-weight:800;margin-right:9px}
+.footer{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;padding:10px max(14px,calc((100vw - 720px)/2 + 14px));display:flex;gap:9px;align-items:center;z-index:50}.money{color:var(--orange);font-weight:850;font-size:18px;flex:1}.btn{border:1px solid var(--blue);background:#fff;color:var(--blue);border-radius:10px;padding:12px 14px;font-size:13px}.btn.primary{background:var(--blue);color:#fff}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:flex-end}.modal.show{display:flex}.sheet{width:100%;max-width:720px;margin:auto;background:#fff;border-radius:20px 20px 0 0;padding:22px 18px 28px;max-height:78vh;overflow:auto}.sheet h2{margin:0 0 15px}.close{float:right;font-size:24px}.copy{width:100%;padding:13px;border:0;border-radius:10px;background:var(--blue);color:#fff;font-size:15px}
+@media(min-width:721px){.footer{left:calc(50% - 360px);right:calc(50% - 360px)}}
+
+.costtabs{display:flex;gap:8px;padding:12px 16px 4px;background:#fff;overflow:auto;position:sticky;top:123px;z-index:10}
+.costtab{flex:0 0 auto;padding:8px 16px;border-radius:18px;background:#f4f6f8;color:#666;font-size:13px}
+.costtab.on{background:#eaf5ff;color:#147fe8;font-weight:700}
+.costitem{margin:12px 16px;border:1px solid #edf0f3;border-radius:14px;background:#fff;overflow:hidden}
+.costitemhead{padding:15px 15px 10px;display:flex;justify-content:space-between;align-items:flex-start}
+.costitemtitle{font-size:16px;font-weight:750}
+.costitemprice{font-size:16px;font-weight:800;color:#f27620}
+.costitemsub{padding:0 15px 12px;color:#777;font-size:12px;line-height:1.7}
+.detailrow{padding:12px 15px;border-top:1px solid #f0f1f3;display:flex;justify-content:space-between;gap:12px;font-size:13px;line-height:1.55}
+.detailrow b{font-weight:600}
+.detailrow .r{white-space:nowrap;color:#555}
+.costnote{margin:10px 16px;padding:12px 13px;background:#f8fafc;border-radius:10px;color:#737983;font-size:12px;line-height:1.7}
+.smallgreen{color:#18a874!important}
+
+/* ===== 每日动态路线地图 ===== */
+.routebox{margin:0 16px 18px;border:1px solid #e8edf3;border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 3px 14px rgba(20,50,80,.05)}
+.route-head{padding:15px 15px 10px;display:flex;justify-content:space-between;align-items:center}.route-head h2{margin:0;font-size:18px}.route-head small{color:#8b929b}
+.route-tabs{display:flex;gap:8px;padding:0 12px 12px}.route-tab{flex:1;border:0;border-radius:12px;padding:10px 6px;font-weight:800;background:#f1f4f7;color:#6f7680}.route-tab.active.d1{background:#fff0e5;color:#ef6c00}.route-tab.active.d2{background:#e8f3ff;color:#1674d9}.route-tab.active.d3{background:#f0eaff;color:#7650d8}
+.mapwrap{position:relative;margin:0 12px 12px;height:310px;border-radius:14px;overflow:hidden;background:#eef5ea}
+.real-map-wrap{background:#e9eef3}.real-map{width:100%;height:100%;min-height:310px}.map-badge{position:absolute;top:10px;right:10px;z-index:500;background:rgba(255,255,255,.94);padding:7px 10px;border-radius:10px;font-size:11px;font-weight:700;box-shadow:0 2px 10px rgba(0,0,0,.12)}.route-marker-wrap{background:transparent!important;border:0!important}.route-marker{width:30px;height:30px;border:3px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:900;box-shadow:0 2px 7px rgba(0,0,0,.28)}.leaflet-control-attribution{font-size:9px!important}.schematic{width:100%;height:100%;display:block}.maplabel{font-size:11px;font-weight:700;fill:#34404b}.mapnum{font-size:11px;font-weight:900;fill:#fff;text-anchor:middle;dominant-baseline:middle}.route-summary{display:flex;gap:7px;overflow:auto;padding:0 12px 12px}.route-pill{white-space:nowrap;padding:7px 10px;border-radius:999px;background:#f7f8fa;color:#515a64;font-size:11px}.route-info{padding:0 14px 15px}.route-info strong{font-size:14px}.route-info p{margin:5px 0 0;color:#858c95;font-size:12px;line-height:1.6}
+.route-legend{display:flex;gap:12px;padding:0 14px 14px;font-size:11px;color:#6e7680}.legend-dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:4px}.ld1{background:#f07b24}.ld2{background:#187bd8}.ld3{background:#7952d9}
+
+</style>
+
+<style>
+.ctrip-cost{background:#f7f8fa;padding-bottom:110px}.cost-subtabs{display:flex;justify-content:space-around;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:20}.cost-subtab{border:0;background:#fff;padding:15px 13px;font-size:15px;color:#333}.cost-subtab.active{color:#1687e8;background:#eef7ff;border-radius:5px}.cost-pane{display:none}.cost-pane.active{display:block}.cost-title-row{display:flex;justify-content:space-between;align-items:center;background:#fff;padding:18px}.cost-title{font-size:19px;font-weight:700}.cost-price{color:#f06b2c;font-size:22px;font-weight:800}.cost-card{margin:0 14px 14px;background:#fff;border-radius:10px;padding:16px}.date-line{font-size:14px;color:#555}.cost-card h3{font-size:18px;margin:8px 0}.stars{color:#f3a21c}.muted,.cost-card p,.ticket-desc{font-size:13px;line-height:1.7;color:#666}.room-box,.ticket-card{border-top:1px solid #eee;margin-top:14px;padding-top:14px}.room-box small{color:#999}.room-price{text-align:right;font-size:13px;color:#666}.room-total{text-align:right;font-size:13px}.room-total span,.orange{color:#f06b2c}.detail-line{display:flex;justify-content:space-between;border-top:1px solid #eee;padding:11px 0;font-size:13px}.green{color:#18a77b!important}.cancel{border-top:1px solid #eee;margin-top:12px;padding-top:11px;color:#18a77b;font-size:12px}.note{background:#f8fafb;padding:11px;border-radius:7px;color:#777;font-size:12px;line-height:1.7;margin-top:12px}.ticket-total{display:flex;justify-content:space-between;border-top:1px solid #eee;padding:14px 0;font-size:14px}.ticket-total b{color:#f06b2c;font-size:18px}.cost-total-box,.include-box{margin:12px 14px;background:#fff;border-radius:10px;padding:16px}.cost-total-box div{display:flex;justify-content:space-between;padding:5px 0}.cost-total-box strong{font-size:21px;color:#f06b2c}.cost-total-box p{font-size:11px;color:#999}.include-box h2{font-size:17px;margin:6px 0}.include-box p{font-size:13px;line-height:1.8;margin:3px 0}
+</style></head>
+<body>
+<div class="app">
+<header class="top">
+  <div class="topline"><span class="back">‹</span><span class="title">长沙3日2晚15人专属定制游</span><span class="dots">•••</span></div>
+  <div class="order">方案编号：CS-20260919-15P · 参考版</div>
+</header>
+
+<div class="hero">
+  <div class="route"><span>9月19日</span><span class="arrow">→</span><span>9月21日</span></div>
+  <div class="meta">15成人　·　长沙出发/长沙返程　·　3天2晚<br>舒适型住宿　·　19座中巴　·　导游/领队　·　保险</div>
+</div>
+
+<div class="quick">
+  <div><div class="qnum">2晚</div><div class="qtxt">舒适型酒店</div></div>
+  <div><div class="qnum">3天</div><div class="qtxt">专属用车</div></div>
+  <div><div class="qnum">15人</div><div class="qtxt">团队定制</div></div>
+</div>
+
+<nav class="tabs">
+ <div class="tab active" onclick="tab('overview',this)">方案速览</div>
+ <div class="tab" onclick="tab('days',this)">3日行程</div>
+ <div class="tab" onclick="tab('cost',this)">费用包含</div>
+</nav>
+
+<main>
+<section id="overview" class="panel active">
+ <div class="section">
+  <h2>项目包含</h2>
+  <div class="include">
+   <div class="incrow"><div class="incleft"><span class="icon">▣</span><span class="incname">酒店2晚</span></div><span class="incval">舒适型 · 8间</span></div>
+   <div class="incrow"><div class="incleft"><span class="icon">▱</span><span class="incname">19座旅游中巴</span></div><span class="incval">3天 · 司机</span></div>
+   <div class="incrow"><div class="incleft"><span class="icon">★</span><span class="incname">景点＋景交</span></div><span class="incval">岳麓书院等</span></div>
+   <div class="incrow"><div class="incleft"><span class="icon">✓</span><span class="incname">保险＋服务</span></div><span class="incval">3天领队/导游</span></div>
+   <div class="incrow"><div class="incleft"><span class="icon">餐</span><span class="incname">团队餐</span></div><span class="incval">5顿正餐＋早餐</span></div>
+  </div>
+
+  <h2 style="margin-top:25px">路线亮点</h2>
+  <div class="badges"><span>五一广场</span><span>IFS</span><span>太平街</span><span>坡子街</span><span>湖南博物院</span><span>岳麓书院</span><span>岳麓山</span><span>爱晚亭</span><span>橘子洲</span><span>湘江夜景</span><span>天心阁</span></div>
+
+  <h2 style="margin-top:25px">酒店安排</h2>
+  <div class="hotel">
+   <div class="hotelpic"><img loading="lazy" src="https://dimg04.c-ctrip.com/images/1mc2912000d1olyyj638F_W_1280_853_R5_Q70.jpg" alt="一束酒店（长沙五一广场IFS国金中心店）酒店实景"></div>
+   <div class="hotelbody">
+    <div class="hotelname">一束酒店（长沙五一广场IFS国金中心店）</div>
+    <div class="stars">★★★★</div>
+    <div class="hotelmeta">芙蓉中路定王大厦一带 · 便于连接五一广场、芙蓉广场及市区景点<br>建议房型：7间双床房＋1间大床房 · 共8间房 · 2晚</div>
+    <div class="hotelprice"><b>预算≈¥8,000/团队</b><span>实际以确认时库存/报价为准</span></div>
+   </div>
+  </div>
+
+  <h2 style="margin-top:25px">团队执行标准</h2>
+  <ul class="checklist">
+   <li>15人统一安排19座旅游中巴，减少打车分散和集合等待</li>
+   <li>每天预留休息窗口，不连续安排高强度步行</li>
+   <li>湖南博物院安排在9月20日（周日），避免9月21日周一闭馆风险</li>
+   <li>岳麓书院提前实名预约；入园需携带预约证件原件</li>
+   <li>最终景点开放、预约、天气及车辆停车规则以出发前官方/供应商确认结果为准</li>
+  </ul>
+ </div>
+</section>
+
+
+<section id="days" class="panel">
+ <div class="routebox" id="daily-route">
+  <div class="route-head"><h2>每日行程地图</h2><small>真实地图 · 实际道路路线 · 点击切换每日行程</small></div>
+  <div class="route-tabs">
+   <button class="route-tab active d1" data-day="1">Day 1 · 城市烟火</button>
+   <button class="route-tab d2" data-day="2">Day 2 · 山水人文</button>
+   <button class="route-tab d3" data-day="3">Day 3 · 老城慢游</button>
+  </div>
+  <div class="mapwrap real-map-wrap">
+   <div id="real-map" class="real-map" aria-label="长沙真实地图"></div>
+   <div class="map-badge">真实地图 · OpenStreetMap</div>
+  </div>
+  <div class="route-summary" id="route-summary"></div>
+  <div class="route-legend"><span><i class="legend-dot ld1"></i>Day 1</span><span><i class="legend-dot ld2"></i>Day 2</span><span><i class="legend-dot ld3"></i>Day 3</span></div>
+  <div class="route-info"><strong id="route-title">Day 1｜五一广场 → IFS国金中心 → 太平街 → 坡子街 → 杜甫江阁</strong><p id="route-desc">真实地图展示当天景点位置，并沿实际道路绘制行程路线；景区内部以步行为主。</p></div>
+ </div>
+
+ <div class="day">
+  <div class="dayhead"><div><div class="daytag">DAY 1</div><div class="daytheme">城市烟火 · 老街 · 湘江夜景</div></div><div class="daydate">09/19 周六</div></div>
+  <div class="timeline">
+   <div class="item"><div class="time">09:00—10:00</div><div class="place">长沙集合</div><div class="desc">长沙南站/黄花机场/指定地点集合。19座中巴接站，统一装载行李。</div></div>
+   <div class="item"><div class="time">10:00—11:00</div><div class="place">酒店寄存行李</div><div class="desc">团队签到、分房信息登记；若酒店允许提前入住则直接办理。</div></div>
+   <div class="item has-spot"><div class="time">11:15—12:20</div><div class="spot-card"><img loading="lazy" src="https://dimg04.c-ctrip.com/images/1mh0e12000ayut0r6B5DF_W_640_10000.jpg?proc=autoorient" alt="长沙五一广场"><div><div class="place">五一广场</div><div class="desc">城市核心商圈地标，团队合影、城市漫步。全年开放，具体以当天情况为准。</div><div class="img-credit">图片参考：携程公开图片</div></div></div>
+   <div class="spot-card"><img loading="lazy" src="https://n.sinaimg.cn/sinakd10111/221/w1079h1542/20210907/0c1b-b6279340d6a12c057b586c9bf1f1743d.png" alt="长沙IFS国金中心"><div><div class="place">IFS国金中心</div><div class="desc">打卡长沙城市潮流地标，可安排与KAWS雕塑合影。</div><div class="img-credit">图片参考：公开媒体图片</div></div></div></div>
+   <div class="item"><div class="time">12:30—14:00</div><div class="place">长沙湘菜团队午餐 <span class="tag">含餐</span></div><div class="desc">建议3桌左右，菜品以剁椒鱼头、辣椒炒肉、小炒黄牛肉、时蔬为主。</div></div>
+   <div class="item has-spot"><div class="time">14:10—16:00</div><div class="spot-card"><img loading="lazy" src="https://dimg04.c-ctrip.com/images/1mh0e12000ayut0r6B5DF_W_640_10000.jpg?proc=autoorient" alt="太平街"><div><div class="place">太平街</div><div class="desc">历史街区慢游，适合拍照、逛小店与体验长沙烟火气。</div></div></div>
+   <div class="spot-card"><img loading="lazy" src="https://dimg04.c-ctrip.com/images/1mh0e12000ayut0r6B5DF_W_640_10000.jpg?proc=autoorient" alt="坡子街"><div><div class="place">坡子街</div><div class="desc">长沙美食街区，可自由体验臭豆腐、糖油粑粑等小吃，个人消费自理。</div></div></div></div>
+   <div class="item"><div class="time">16:00—17:30</div><div class="place">酒店休息</div><div class="desc">回酒店休息、洗漱，给15人团队留出缓冲时间。</div></div>
+   <div class="item has-spot"><div class="time">18:00—19:30</div><div class="spot-card"><img loading="lazy" src="https://dimg04.c-ctrip.com/images/0103u12000rpgt4enB744_W_750_0.jpg?proc=autoorient" alt="杜甫江阁"><div><div class="place">杜甫江阁</div><div class="desc">沿江散步、拍照，可根据团队意愿安排登阁或夜游项目。</div><div class="img-credit">图片参考：携程公开图片</div></div></div>
+   <div class="spot-card"><img loading="lazy" src="https://img.500px.me/graphic/bb682a60243bc91cc6e558c657c001142/8fc7ac864e20484080f1a33fecb5f3d1.jpg%21p3" alt="湘江夜景"><div><div class="place">湘江沿岸夜景</div><div class="desc">江岸城市灯光、桥梁与两岸天际线观赏，视天气及当晚开放情况安排。</div></div></div></div>
+   <div class="item"><div class="time">19:30—21:00</div><div class="place">长沙夜宵</div><div class="desc">可安排烧烤、米粉、小吃；若纳入团队餐，则从餐饮预算中执行。</div></div>
+   <div class="item"><div class="time">21:00</div><div class="place">返回酒店</div></div>
+  </div>
+ </div>
+
+ <div class="day">
+  <div class="dayhead"><div><div class="daytag">DAY 2</div><div class="daytheme">博物院 · 岳麓山 · 书院 · 橘子洲</div></div><div class="daydate">09/20 周日</div></div>
+  <div class="timeline">
+   <div class="item"><div class="time">07:00—08:00</div><div class="place">酒店早餐 <span class="tag">含早</span></div><div class="desc">建议07:00开始分批用餐，08:00准时集合。</div></div>
+   <div class="item"><div class="time">08:00—08:40</div><div class="place">前往湖南博物院</div><div class="desc">中巴统一出发，预留市区交通缓冲。</div></div>
+   <div class="item has-spot"><div class="time">09:00—11:30</div><div class="spot-card"><img loading="lazy" src="https://pic1.zhimg.com/v2-18e46601d5937afcc7d3d1bbcd66a866_r.jpg" alt="湖南博物院"><div><div class="place">湖南博物院 <span class="tag">需预约</span></div><div class="desc">重点参观马王堆汉墓相关展览及湖南历史文化内容；15人团队提前实名确认预约名额。</div><div class="img-credit">图片参考：公开网页图片</div></div></div></div>
+   <div class="item"><div class="time">11:40—12:50</div><div class="place">团队午餐 <span class="tag">含餐</span></div><div class="desc">控制在70分钟左右，避免下午行程拖延。</div></div>
+   <div class="item"><div class="time">12:50—13:40</div><div class="place">前往岳麓山</div><div class="desc">途中可在车上休息。</div></div>
+   <div class="item has-spot"><div class="time">13:40—15:00</div><div class="spot-card"><img loading="lazy" src="https://img.pconline.com.cn/images/photoblog/4/8/9/8/4898378/20089/10/1221049906938_mthumb.jpg" alt="岳麓书院"><div><div class="place">岳麓书院 <span class="tag">需实名预约</span></div><div class="desc">参观千年书院建筑群、碑廊等；入园携带预约所用证件原件。</div><div class="img-credit">图片参考：公开摄影图片</div></div></div></div>
+   <div class="item has-spot"><div class="time">15:00—16:20</div><div class="spot-card"><img loading="lazy" src="https://ak-d.tripcdn.com/images/1mi6e12000rg64zdm1565.jpg?proc=source%2Ftrip" alt="爱晚亭"><div><div class="place">爱晚亭</div><div class="desc">岳麓山经典人文景点，轻徒步、拍照。高温/降雨时缩短步行路线。</div><div class="img-credit">图片参考：携程公开图片</div></div></div>
+   <div class="spot-card"><img loading="lazy" src="https://so1.360tres.com/t0100a18fa90b331fe6.jpg" alt="岳麓山"><div><div class="place">岳麓山</div><div class="desc">安排轻量级山间漫游，结合爱晚亭点位，不做高强度登山。</div></div></div></div>
+   <div class="item"><div class="time">16:20—17:00</div><div class="place">前往橘子洲</div></div>
+   <div class="item has-spot"><div class="time">17:00—19:00</div><div class="spot-card"><img loading="lazy" src="https://img2.voc.com.cn/remote/2022/08/22/540_3fc18e7da99f17558c7341da8d57c95442699a3c.jpg" alt="橘子洲"><div><div class="place">橘子洲 <span class="tag">景交可选</span></div><div class="desc">橘子洲头及青年毛泽东艺术雕像周边游览；15人团队建议统一乘景区交通，减少步行。</div><div class="img-credit">图片参考：新湖南公开图片</div></div></div></div>
+   <div class="item has-spot"><div class="time">19:00—20:30</div><div class="spot-card"><img loading="lazy" src="https://img.500px.me/graphic/bb682a60243bc91cc6e558c657c001142/8fc7ac864e20484080f1a33fecb5f3d1.jpg%21p3" alt="湘江夜景"><div><div class="place">湘江夜景＋团队晚餐 <span class="tag">含餐</span></div><div class="desc">晚餐后视天气与时间安排江岸夜景拍照。</div></div></div></div>
+   <div class="item"><div class="time">21:00</div><div class="place">返回酒店</div></div>
+  </div>
+ </div>
+
+ <div class="day">
+  <div class="dayhead"><div><div class="daytag">DAY 3</div><div class="daytheme">老城慢游 · 购物 · 返程</div></div><div class="daydate">09/21 周一</div></div>
+  <div class="timeline">
+   <div class="item"><div class="time">08:00—09:00</div><div class="place">酒店早餐 · 整理行李</div></div>
+   <div class="item has-spot"><div class="time">09:00—10:30</div><div class="spot-card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/9/95/%E9%95%BF%E6%B2%99%E5%B8%82%E5%A4%A9%E5%BF%83%E9%98%81%E5%85%A7%E9%83%A8%E4%BB%8B%E7%B4%B9.jpg" alt="长沙天心阁"><div><div class="place">天心阁</div><div class="desc">根据当天开放及团队兴趣决定是否购票入内；若返程较早，可保留周边城市漫游。</div><div class="img-credit">图片：Wikimedia Commons / Lcsm，CC BY-SA 4.0</div></div></div></div>
+   <div class="item has-spot"><div class="time">10:40—12:00</div><div class="spot-card"><img loading="lazy" src="https://dimg04.c-ctrip.com/images/1mh0e12000ayut0r6B5DF_W_640_10000.jpg?proc=autoorient" alt="黄兴路步行街"><div><div class="place">黄兴路步行街</div><div class="desc">自由购物、拍照、购买长沙特产，结合五一广场商圈安排返程前最后一段自由时间。</div></div></div></div>
+   <div class="item"><div class="time">12:00—13:30</div><div class="place">长沙特色午餐 <span class="tag">含餐</span></div></div>
+   <div class="item"><div class="time">13:30—14:30</div><div class="place">酒店取行李 · 退房</div><div class="desc">统一清点行李，确认15人全部上车。</div></div>
+   <div class="item"><div class="time">14:30以后</div><div class="place">长沙南站 / 黄花机场送站</div><div class="desc">按实际车次/航班倒推送站时间。建议预留至少30分钟市区交通缓冲。</div></div>
+  </div>
+ </div>
+</section>
+
+<section id="cost" class="panel">
+<div class="ctrip-cost">
+  <div class="cost-subtabs">
+    <button class="cost-subtab active" data-cost="hotel">酒店</button>
+    <button class="cost-subtab" data-cost="car">用车</button>
+    <button class="cost-subtab" data-cost="ticket">门票</button>
+    <button class="cost-subtab" data-cost="insurance">保险</button>
+    <button class="cost-subtab" data-cost="service">服务费</button>
+  </div>
+
+  <div class="cost-pane active" id="cost-hotel">
+    <div class="cost-title-row"><div class="cost-title">🔵 酒店</div><div class="cost-price">¥8,000</div></div>
+    <div class="cost-card">
+      <div class="date-line">09月19日(入住) - 09月21日(离店)　2晚</div>
+      <h3>一束酒店（长沙五一广场IFS国金中心店）</h3>
+      <div class="stars">◆ ◆ ◆ ◆</div>
+      <div class="muted">五一广场 / 芙蓉广场商圈</div>
+      <p>【酒店设备类房型】设施完善，适合团队出行。</p>
+      <p>【位置】靠近五一广场、IFS国金中心，方便串联市区景点。</p>
+      <p>【酒店早餐】建议选择含早方案，2晚共2次早餐。</p>
+      <p>【团队配置】7间高级双床房＋1间高级大床房，共8间。</p>
+      <p>【特别说明】实际房型、库存、早餐及取消政策以最终确认单为准。</p>
+      <div class="room-box">
+        <b>高级双床房（含早餐）</b><br>
+        <small>2人入住 · 约30㎡ · 7间</small>
+        <div class="room-price">¥500 × 7间 × 2晚</div>
+        <div class="room-total">总价　<span>≈ ¥7,000</span></div>
+      </div>
+      <div class="room-box">
+        <b>高级大床房（含早餐）</b><br>
+        <small>2人入住 · 约30㎡ · 1间</small>
+        <div class="room-price">¥500 × 1间 × 2晚</div>
+        <div class="room-total">总价　<span>≈ ¥1,000</span></div>
+      </div>
+      <div class="cancel">✓ 取消规则以最终房源及确认单为准</div>
+    </div>
+  </div>
+
+  <div class="cost-pane" id="cost-car">
+    <div class="cost-title-row"><div class="cost-title">🔵 用车</div><div class="cost-price">¥2,500</div></div>
+    <div class="cost-card">
+      <div class="date-line">09月19日 - 09月21日　3天</div>
+      <h3>长沙团队包车</h3>
+      <div class="muted">19座中巴｜乘客15人｜行李按实际装载量确认</div>
+      <p>起点：长沙集合点 / 长沙南站 / 黄花机场（按最终抵离信息）</p>
+      <p>终点：长沙返程送站点</p>
+      <div class="detail-line"><span>19座中巴或同级车型</span><b>3天</b></div>
+      <div class="detail-line"><span>司机服务</span><b class="green">包含</b></div>
+      <div class="detail-line"><span>常规油费</span><b class="green">包含</b></div>
+      <div class="detail-line"><span>基础路桥费</span><b>按合同确认</b></div>
+      <div class="detail-line"><span>常规停车费</span><b>按供应商规则</b></div>
+      <div class="detail-line"><span>每日参考用车</span><b>约8小时</b></div>
+      <div class="detail-line"><span>超时 / 超公里</span><b>下单前确认</b></div>
+      <div class="note">车型需确认车况、空调、行李空间及15人团队舒适度；司机服务范围、夜间服务、停车费用均建议写入合同。</div>
+      <div class="cancel">✓ 出发日前可取消情况以最终包车合同为准</div>
+    </div>
+  </div>
+
+  <div class="cost-pane" id="cost-ticket">
+    <div class="cost-title-row"><div class="cost-title">🔵 门票</div><div class="cost-price">¥1,200</div></div>
+    <div class="cost-card">
+      <div class="ticket-card"><div class="date-line">09月20日</div><h3>湖南博物院</h3><p>团队预约参观｜15人</p><div class="detail-line"><span>预约方式</span><b class="green">预约制</b></div><div class="detail-line"><span>人数</span><b>15人</b></div><div class="cancel">✓ 以官方预约成功为最终确认条件</div></div>
+      <div class="ticket-card"><div class="date-line">09月20日</div><h3>岳麓书院</h3><p>成人票｜实名预约｜15人</p><div class="detail-line"><span>参考票价</span><b>¥40 × 15人</b></div><div class="detail-line"><span>参考总价</span><b class="orange">¥600</b></div><div class="detail-line"><span>预约方式</span><b>实名网络预约</b></div><div class="cancel">✓ 预约成功后按预约证件原件入园</div></div>
+      <div class="ticket-card"><div class="date-line">09月20日</div><h3>橘子洲</h3><p>景区游览＋必要景区交通预算</p><div class="detail-line"><span>门票</span><b>按当日政策</b></div><div class="detail-line"><span>景区交通</span><b>预留预算</b></div></div>
+      <div class="ticket-card"><div class="date-line">09月19日 / 21日</div><h3>杜甫江阁、爱晚亭、岳麓山、天心阁</h3><p>按开放情况及团队实际游览安排执行</p><div class="detail-line"><span>门票预算</span><b>计入总预算</b></div></div>
+      <div class="ticket-total"><span>门票＋景区交通预算</span><b>≈ ¥1,200</b></div>
+      <div class="note">每个景点单独列示，实际成交金额以景区官方票价、预约结果和最终确认单为准。</div>
+    </div>
+  </div>
+
+  <div class="cost-pane" id="cost-insurance">
+    <div class="cost-title-row"><div class="cost-title">🔵 保险</div><div class="cost-price">¥450</div></div>
+    <div class="cost-card">
+      <div class="date-line">09月19日 - 09月21日　3天</div>
+      <h3>旅游意外保险</h3>
+      <div class="detail-line"><span>参保人数</span><b>15人</b></div>
+      <div class="detail-line"><span>保险期间</span><b>3天</b></div>
+      <div class="detail-line"><span>参考费用</span><b>≈ ¥30 / 人</b></div>
+      <div class="detail-line"><span>团队参考总价</span><b class="orange">≈ ¥450</b></div>
+      <div class="detail-line"><span>电子保单</span><b class="green">出发前确认</b></div>
+      <div class="note">具体承保公司、保额、保障责任及免责条款以正式保单为准；本页金额仅作预算。</div>
+      <div class="cancel">✓ 以最终保单规则为准</div>
+    </div>
+  </div>
+
+  <div class="cost-pane" id="cost-service">
+    <div class="cost-title-row"><div class="cost-title">🔵 服务费</div><div class="cost-price">¥1,350</div></div>
+    <div class="cost-card">
+      <div class="date-line">09月19日 - 09月21日　3天</div>
+      <h3>团队导游 / 领队服务</h3>
+      <div class="detail-line"><span>服务人数</span><b>15人</b></div>
+      <div class="detail-line"><span>服务天数</span><b>3天</b></div>
+      <div class="detail-line"><span>集合及行程衔接</span><b class="green">包含</b></div>
+      <div class="detail-line"><span>酒店入住协调</span><b class="green">包含</b></div>
+      <div class="detail-line"><span>景区行程协调</span><b class="green">包含</b></div>
+      <div class="detail-line"><span>返程送站衔接</span><b class="green">包含</b></div>
+      <div class="detail-line"><span>参考费用</span><b>≈ ¥450 / 天</b></div>
+      <div class="detail-line"><span>团队参考总价</span><b class="orange">≈ ¥1,350</b></div>
+      <div class="note">如增加专业讲解、摄影跟拍、夜间额外陪同等服务，需另行确认费用。</div>
+      <div class="cancel">✓ 具体服务人员及服务范围以最终确认单为准</div>
+    </div>
+  </div>
+
+  <div class="cost-total-box">
+    <div><span>15人团队参考总价</span><strong>¥18,000—21,000</strong></div>
+    <div><span>参考人均</span><b>¥1,200—1,400 / 人</b></div>
+    <p>以上为方案预算展示，不是实时成交价；最终以确认单中列明的费用包含项及金额为准。</p>
+  </div>
+
+  <div class="include-box">
+    <h2>费用包含</h2>
+    <p>✓ 2晚舒适型酒店住宿，建议8间房</p>
+    <p>✓ 19座中巴3天团队用车及司机服务</p>
+    <p>✓ 行程列明景点门票及必要景区交通预算</p>
+    <p>✓ 15人×3天旅游意外保险</p>
+    <p>✓ 3天团队导游/领队服务</p>
+    <p>✓ 5顿团队正餐＋2次酒店早餐</p>
+    <h2>费用不包含</h2>
+    <p>× 往返长沙的大交通（高铁/飞机等）</p>
+    <p>× 个人购物、个人消费及未列明自费项目</p>
+    <p>× 官方收费讲解、摄影跟拍等增值服务</p>
+    <p>× 超时、超公里或超出合同范围产生的费用</p>
+  </div>
+</div>
+</section>
+</main>
+</div>
+
+<div class="footer">
+ <div class="money">¥18,000—21,000</div>
+ <button class="btn" onclick="openSheet()">查看费用明细</button>
+ <button class="btn primary" onclick="openSheet()">确认方案</button>
+</div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeSheet()">
+ <div class="sheet">
+  <span class="close" onclick="closeSheet()">×</span>
+  <h2>15人团队执行清单</h2>
+  <ul class="checklist">
+   <li>确认8间舒适型酒店房间及早餐</li>
+   <li>确认19座中巴3天全包价及司机服务范围</li>
+   <li>确认湖南博物院15人预约</li>
+   <li>确认岳麓书院15人实名预约</li>
+   <li>确认橘子洲景区及观光车政策</li>
+   <li>确认3天导游/领队与保险</li>
+   <li>确认5顿团队正餐菜单及价格</li>
+   <li>确认返程车站/航班后重新倒排第三天时间</li>
+  </ul>
+  <button class="copy" onclick="copyPrompt()">复制携程AI行程助手指令</button>
+ </div>
+</div>
+
+<script>
+function tab(id,el){document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));el.classList.add('active');scrollTo(0,0)}
+function openSheet(){document.getElementById('modal').classList.add('show')}
+function closeSheet(){document.getElementById('modal').classList.remove('show')}
+function copyPrompt(){
+ const p=`请按15人团队为我确认长沙3日2晚行程：2026年9月19日-9月21日。舒适型酒店2晚，建议五一广场/芙蓉广场附近8间房；19座中巴3天；包含司机、油费、停车/基础路桥、门票、景区交通、旅游意外保险、3天导游/领队、5顿团队正餐、酒店早餐及送站。D1五一广场、IFS、太平街、坡子街、杜甫江阁、湘江夜景；D2湖南博物院、岳麓书院、爱晚亭、岳麓山、橘子洲；D3天心阁、黄兴路步行街、午餐、送站。请按酒店、用车、门票、保险、服务费、餐饮逐项拆分报价，给出每项数量、单价、总价、取消规则和是否含税/服务费；再给出15人团队总价和人均价，预算上限约21000元，并标明所有预约项目和实时库存需要确认。`;
+ navigator.clipboard?.writeText(p).then(()=>alert('已复制，可粘贴到携程AI行程助手。')).catch(()=>alert(p));
+}
+</script>
+
+<script>
+document.querySelectorAll(".cost-subtab").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    document.querySelectorAll(".cost-subtab").forEach(function(x){x.classList.remove("active")});
+    document.querySelectorAll(".cost-pane").forEach(function(x){x.classList.remove("active")});
+    btn.classList.add("active");
+    document.getElementById("cost-"+btn.dataset.cost).classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+<script>
+(function(){
+  function boot(){
+    if(typeof L==='undefined'){
+      var el=document.getElementById('real-map');
+      if(el) el.innerHTML='<div style="padding:22px;color:#666;font-size:13px">地图组件加载失败，请联网后刷新页面。</div>';
+      return;
+    }
+    const days={
+      1:{color:'#f27620',title:'Day 1｜五一广场 → IFS国金中心 → 太平街 → 坡子街 → 杜甫江阁',desc:'真实地图 + 实际道路路线；商圈、老街与湘江沿线。太平街、坡子街及杜甫江阁景区内部以步行为主。',center:[28.1935,112.9755],zoom:14,points:[
+        ['五一广场',28.1964,112.9775],
+        ['IFS国金中心',28.1968,112.9788],
+        ['太平街',28.1927,112.9708],
+        ['坡子街',28.1916,112.9750],
+        ['杜甫江阁',28.1884,112.9677]
+      ]},
+      2:{color:'#187bd8',title:'Day 2｜湖南博物院 → 岳麓书院 → 爱晚亭 → 岳麓山 → 橘子洲',desc:'真实地图 + 实际道路路线；岳麓山景区内部及橘子洲内部游览以步行为主。',center:[28.1905,112.9570],zoom:12,points:[
+        ['湖南博物院',28.2099,112.9930],
+        ['岳麓书院',28.180397,112.940805],
+        ['爱晚亭',28.180437,112.937564],
+        ['岳麓山',28.1869,112.9315],
+        ['橘子洲',28.1750,112.9615]
+      ]},
+      3:{color:'#7952d9',title:'Day 3｜天心阁 → 黄兴路步行街 → 自由活动 → 长沙南站',desc:'真实地图 + 实际道路路线；最后送站至长沙南站，具体送站时间按车次确认。',center:[28.1785,112.9930],zoom:13,points:[
+        ['天心阁',28.1818,112.9800],
+        ['黄兴路步行街',28.1930,112.9778],
+        ['自由活动',28.1960,112.9755],
+        ['长沙南站',28.1516,113.0390]
+      ]}
+    };
+    const map=L.map('real-map',{zoomControl:true,scrollWheelZoom:true,attributionControl:true});
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap contributors'}).addTo(map);
+    let markers=L.layerGroup().addTo(map),routeLayer=null,routeSeq=0;
+    const summary=document.getElementById('route-summary'),title=document.getElementById('route-title'),desc=document.getElementById('route-desc');
+    function icon(color,num){return L.divIcon({className:'route-marker-wrap',html:'<div class="route-marker" style="background:'+color+'">'+num+'</div>',iconSize:[32,32],iconAnchor:[16,16],popupAnchor:[0,-18]});}
+    function drawMarkers(d){
+      markers.clearLayers();
+      d.points.forEach((p,i)=>L.marker([p[1],p[2]],{icon:icon(d.color,i+1)}).bindPopup('<b>'+p[0]+'</b><br><span style="color:#777">Day '+(Object.keys(days).find(k=>days[k]===d))+' · 第'+(i+1)+'站</span>').addTo(markers));
+    }
+    async function drawRoadRoute(d,day){
+      const seq=++routeSeq;
+      if(routeLayer){map.removeLayer(routeLayer);routeLayer=null;}
+      const coords=d.points.map(p=>p[2]+','+p[1]).join(';');
+      const url='https://router.project-osrm.org/route/v1/driving/'+coords+'?overview=full&geometries=geojson&steps=false';
+      try{
+        const r=await fetch(url,{mode:'cors'});
+        if(!r.ok) throw new Error('route http '+r.status);
+        const data=await r.json();
+        if(seq!==routeSeq) return;
+        if(data.code==='Ok' && data.routes && data.routes[0]){
+          routeLayer=L.geoJSON(data.routes[0].geometry,{style:{color:d.color,weight:5,opacity:.9}}).addTo(map);
+          const km=(data.routes[0].distance/1000).toFixed(1), min=Math.round(data.routes[0].duration/60);
+          desc.textContent=d.desc+' 预计驾车约 '+km+' km / '+min+' 分钟（路线服务动态计算，仅供行程参考）。';
+        }else throw new Error('no route');
+      }catch(e){
+        // 公开路线服务不可用时仍保留真实地图与真实点位，不画直线冒充道路。
+        desc.textContent=d.desc+' 当前无法获取道路路线服务，地图仍可正常查看各真实点位。';
+      }
+    }
+    function render(day){
+      const d=days[day];
+      drawMarkers(d);
+      map.setView(d.center,d.zoom,{animate:true});
+      summary.innerHTML=d.points.map((p,i)=>'<span class="route-pill">'+(i+1)+' · '+p[0]+'</span>').join('');
+      title.textContent=d.title; desc.textContent=d.desc;
+      document.querySelectorAll('.route-tab').forEach(b=>b.classList.toggle('active',+b.dataset.day===day));
+      setTimeout(()=>map.invalidateSize(),150);
+      drawRoadRoute(d,day);
+    }
+    document.querySelectorAll('.route-tab').forEach(b=>b.addEventListener('click',()=>render(+b.dataset.day)));
+    render(1);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot); else boot();
+})();
+</script>
+</body></html>
